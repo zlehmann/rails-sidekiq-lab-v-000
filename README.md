@@ -2,13 +2,12 @@
 
 ## Objectives
 
-1. Create a long-running task.
-2. Upload and process a CSV file to create songs.
+1. Move a long-running task to Sidekiq
 
 ## Overview
 
-In this lab, we're going to augment the song library so that we can
-upload a CSV of songs and artists to expand our collection.
+In this lab, we're going to add [Sidekiq](https://github.com/mperham/sidekiq) to the song library so that we can
+upload a CSV of songs and artists in a background worker.
 
 You will find a CSV of classic rock songs and artists in `db\songs.csv`. Use it to test your work!
 
@@ -16,7 +15,6 @@ You will find a CSV of classic rock songs and artists in `db\songs.csv`. Use it 
 
 ## Instructions
 
-1. Update the songs index page to allow a CSV file upload of songs with
-   artist names. In an `songs_controller#upload` action, create `Song` and `Artist` records from the CSV and
-redirect to the songs index page.
+1. Use Sidekiq to process the songs csv upload with a `SongsWorker`
+   background worker.
 2. Make sure tests pass!
