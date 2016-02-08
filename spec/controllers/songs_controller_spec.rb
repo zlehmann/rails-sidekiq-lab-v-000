@@ -7,10 +7,9 @@ RSpec.describe SongsController do
       Artist.destroy_all
     end
 
-    it "uploads and processes a file" do
+    it "uploads and processes a file on a background worker" do
       post :upload, file: fixture_file_upload('songs.csv', 'text/csv')
-      expect(Song.all.count).to eq 13
-      expect(Artist.all.count).to eq 6
+      expect(SongsWorker.jobs.size).to eq 1
     end
   end
 end
