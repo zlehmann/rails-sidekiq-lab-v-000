@@ -18,3 +18,6 @@ You will find a CSV of classic rock songs and artists in `db\songs.csv`. Use it 
 1. Use Sidekiq to process the songs csv upload with a `SongsWorker`
    background worker.
 2. Make sure tests pass!
+
+**Note** The sidekiq gem has been included for you in the Gemfile.
+**Note** This is a working application so there are some tests intenationally passing already.
